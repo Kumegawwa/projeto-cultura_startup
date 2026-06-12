@@ -16,10 +16,15 @@ import {
   Globe2,
   ArrowRight,
   Activity,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import heroImage from "@/assets/hero-traffic.jpg";
+import logoSvg from "@/assets/logo.svg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,19 +43,17 @@ const fadeUp = {
 
 function Section({
   id,
-  dark,
   className = "",
   children,
 }: {
   id?: string;
-  dark?: boolean;
   className?: string;
   children: React.ReactNode;
 }) {
   return (
     <section
       id={id}
-      className={`${dark ? "dark bg-background text-foreground" : "bg-background text-foreground"} py-20 md:py-28 ${className}`}
+      className={`bg-[#1a1a1a] text-white py-20 md:py-28 ${className}`}
     >
       <div className="mx-auto max-w-6xl px-6">{children}</div>
     </section>
@@ -59,8 +62,8 @@ function Section({
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border/60 bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-      <span className="h-1.5 w-1.5 rounded-full bg-emerald" />
+    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-gray-400">
+      <span className="h-1.5 w-1.5 rounded-full bg-[#fd0517]" />
       {children}
     </div>
   );
@@ -82,43 +85,43 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 function Landing() {
   return (
-    <main>
+    <main className="bg-[#1a1a1a] min-h-screen font-sans selection:bg-[#fd0517] selection:text-white">
+      {/* Importação da fonte para a assinatura via Google Fonts (pode ajustar se necessário) */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+      `}</style>
+
       {/* NAV */}
-      <header className="dark fixed top-0 z-50 w-full border-b border-white/5 bg-[color-mix(in_oklab,var(--navy-deep)_85%,transparent)] backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 text-foreground">
-          <div className="flex items-center gap-2 font-bold">
-            <div className="grid h-9 w-9 place-items-center rounded-lg bg-emerald text-navy-deep">
-              <Siren className="h-5 w-5" />
-            </div>
-            <span className="hidden sm:inline">SDS Emergências</span>
+      <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-[#1a1a1a]/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 text-white">
+          <div className="flex items-center gap-3 font-bold">
+             <img src={logoSvg} alt="Logo" className="h-8 w-auto" />
+             <span className="hidden sm:inline">SDS Emergências</span>
           </div>
-          <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
-            <a href="#problema" className="transition-colors hover:text-foreground">Problema</a>
-            <a href="#solucao" className="transition-colors hover:text-foreground">Solução</a>
-            <a href="#como-funciona" className="transition-colors hover:text-foreground">Como Funciona</a>
-            <a href="#equipe" className="transition-colors hover:text-foreground">Equipe</a>
+          <nav className="hidden items-center gap-7 text-sm text-gray-300 md:flex">
+            <a href="#problema" className="transition-colors hover:text-[#fd0517]">Problema</a>
+            <a href="#solucao" className="transition-colors hover:text-[#fd0517]">Solução</a>
+            <a href="#como-funciona" className="transition-colors hover:text-[#fd0517]">Como Funciona</a>
+            <a href="#equipe" className="transition-colors hover:text-[#fd0517]">Equipe</a>
           </nav>
-          <Button asChild size="sm" className="bg-emerald text-navy-deep hover:bg-emerald-glow">
+          <Button asChild size="sm" className="bg-[#fd0517] text-white hover:bg-[#d00412]">
             <a href="#mvp">Acessar MVP</a>
           </Button>
         </div>
       </header>
 
       {/* HERO */}
-      <section className="dark relative isolate overflow-hidden bg-background text-foreground">
+      <section className="relative isolate overflow-hidden bg-[#1a1a1a] text-white">
         <img
           src={heroImage}
-          alt="Cidade inteligente à noite com rastros de luz verde e vermelha"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-50"
+          alt="Cidade inteligente à noite com rastros de luz vermelha"
+          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy-deep/70 via-navy-deep/85 to-navy-deep" />
-        <div className="absolute inset-0 -z-10 bg-grid opacity-40" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1a1a1a]/70 via-[#1a1a1a]/85 to-[#1a1a1a]" />
 
         <div className="mx-auto flex max-w-6xl flex-col items-start px-6 pb-24 pt-40 md:pt-48">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald/30 bg-emerald/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-emerald">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#fd0517]/30 bg-[#fd0517]/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#fd0517]">
               <Activity className="h-3.5 w-3.5" /> Smart City · MVP Acadêmico
             </div>
           </motion.div>
@@ -130,7 +133,7 @@ function Landing() {
             className="max-w-4xl text-4xl font-black leading-[1.05] tracking-tight md:text-6xl lg:text-7xl"
           >
             Sistema Dinâmico de{" "}
-            <span className="text-gradient-emerald">Semáforos</span>{" "}
+            <span className="bg-gradient-to-r from-[#fd0517] to-red-400 bg-clip-text text-transparent">Semáforos</span>{" "}
             para Emergências.
           </motion.h1>
 
@@ -138,10 +141,10 @@ function Landing() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25 }}
-            className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl"
+            className="mt-6 max-w-2xl text-lg text-gray-400 md:text-xl"
           >
             Mobilidade inteligente a favor da vida. Criando uma{" "}
-            <span className="font-semibold text-foreground">onda verde preditiva</span>{" "}
+            <span className="font-semibold text-white">onda verde preditiva</span>{" "}
             para reduzir o tempo de resposta do SAMU e Corpo de Bombeiros.
           </motion.p>
 
@@ -151,12 +154,12 @@ function Landing() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-10 flex flex-wrap gap-4"
           >
-            <Button asChild size="lg" className="bg-emerald text-navy-deep shadow-glow hover:bg-emerald-glow">
+            <Button asChild size="lg" className="bg-[#fd0517] text-white shadow-lg shadow-[#fd0517]/20 hover:bg-[#d00412]">
               <a href="#mvp">
-                Acessar Protótipo / MVP <ArrowRight className="ml-1 h-4 w-4" />
+                Acessar Protótipo / MVP <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white/20 bg-white/5 text-foreground hover:bg-white/10">
+            <Button asChild size="lg" variant="outline" className="border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white">
               <a href="#como-funciona">Como Funciona</a>
             </Button>
           </motion.div>
@@ -171,11 +174,11 @@ function Landing() {
               { k: "−40%", v: "tempo de resposta" },
               { k: "24/7", v: "operação preditiva" },
               { k: "100%", v: "integrado via GPS" },
-              { k: "B2G", v: "licitação pública" },
+              { k: "Híbrido", v: "B2G e B2B SaaS" },
             ].map((s) => (
               <div key={s.v}>
-                <div className="text-2xl font-black text-emerald md:text-3xl">{s.k}</div>
-                <div className="text-xs uppercase tracking-wider text-muted-foreground">{s.v}</div>
+                <div className="text-2xl font-black text-[#fd0517] md:text-3xl">{s.k}</div>
+                <div className="text-xs uppercase tracking-wider text-gray-400">{s.v}</div>
               </div>
             ))}
           </motion.div>
@@ -188,10 +191,10 @@ function Landing() {
           <Reveal>
             <SectionLabel>O Problema</SectionLabel>
             <h2 className="text-3xl font-black md:text-5xl">
-              Segundos decidem vidas. <span className="text-alert">O trânsito não pode ser um obstáculo.</span>
+              Segundos decidem vidas. <span className="text-[#fd0517]">O trânsito não pode ser um obstáculo.</span>
             </h2>
-            <p className="mt-5 text-lg text-muted-foreground">
-              Ambulâncias e caminhões de bombeiros ficam <strong className="text-foreground">presos em cruzamentos fechados</strong> durante os horários de pico. Motoristas civis raramente conseguem abrir passagem com a antecedência necessária, transformando cada cruzamento em um risco operacional.
+            <p className="mt-5 text-lg text-gray-400">
+              Ambulâncias e caminhões de bombeiros ficam <strong className="text-white">presos em cruzamentos fechados</strong> durante os horários de pico. Motoristas civis raramente conseguem abrir passagem com a antecedência necessária, transformando cada cruzamento em um risco operacional.
             </p>
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
               {[
@@ -199,8 +202,8 @@ function Landing() {
                 { icon: AlertTriangle, t: "Manobras de risco" },
                 { icon: TrafficCone, t: "Cruzamentos fechados" },
               ].map(({ icon: Icon, t }) => (
-                <div key={t} className="flex items-center gap-3 rounded-xl border bg-card p-4 transition-all hover:-translate-y-0.5 hover:shadow-elegant">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-alert/10 text-alert">
+                <div key={t} className="flex items-center gap-3 rounded-xl border border-white/10 bg-[#222222] p-4 transition-all hover:-translate-y-0.5 hover:border-[#fd0517]/50">
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-[#fd0517]/10 text-[#fd0517]">
                     <Icon className="h-5 w-5" />
                   </div>
                   <span className="text-sm font-semibold">{t}</span>
@@ -210,16 +213,15 @@ function Landing() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <Card className="relative overflow-hidden border-alert/20 bg-gradient-to-br from-alert/10 via-card to-card p-8 shadow-elegant">
-              <div className="absolute right-0 top-0 h-32 w-32 -translate-y-12 translate-x-12 rounded-full bg-alert/20 blur-3xl" />
-              <Quote className="h-8 w-8 text-alert" />
+            <Card className="relative overflow-hidden border-[#fd0517]/20 bg-gradient-to-br from-[#fd0517]/10 via-[#222222] to-[#1a1a1a] p-8 text-white shadow-xl shadow-black/50">
+              <Quote className="h-8 w-8 text-[#fd0517]" />
               <p className="mt-4 text-xl font-semibold leading-snug md:text-2xl">
-                "Trajetos de 40 minutos podem levar até <span className="text-alert">2 horas</span> nos horários de pico em Curitiba."
+                "Trajetos de 40 minutos podem levar até <span className="text-[#fd0517]">2 horas</span> nos horários de pico em Curitiba."
               </p>
-              <p className="mt-4 text-muted-foreground">
+              <p className="mt-4 text-gray-400">
                 O atraso força manobras de alto risco — uso de canaletas, contramão e até abandono da viatura para chegar ao paciente.
               </p>
-              <div className="mt-6 flex items-center gap-3 border-t pt-6 text-sm text-muted-foreground">
+              <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-6 text-sm text-gray-400">
                 <MapPin className="h-4 w-4" /> Pesquisa de campo · Curitiba/PR
               </div>
             </Card>
@@ -228,17 +230,14 @@ function Landing() {
       </Section>
 
       {/* SOLUÇÃO */}
-      <Section id="solucao" dark className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-grid opacity-30" />
-        <div className="absolute left-1/2 top-0 -z-10 h-72 w-[600px] -translate-x-1/2 rounded-full bg-emerald/20 blur-[120px]" />
-
+      <Section id="solucao" className="relative border-t border-white/5">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <SectionLabel>A Solução</SectionLabel>
             <h2 className="text-3xl font-black md:text-5xl">
-              <span className="text-gradient-emerald">Onda Verde</span> sob demanda.
+              <span className="bg-gradient-to-r from-[#fd0517] to-red-400 bg-clip-text text-transparent">Onda Verde</span> sob demanda.
             </h2>
-            <p className="mt-5 text-lg text-muted-foreground">
+            <p className="mt-5 text-lg text-gray-400">
               Um sistema inteligente de gestão semafórica integrado via GPS. Antecipa automaticamente a abertura dos sinais, criando uma rota fluida e segura para a viatura.
             </p>
           </div>
@@ -263,25 +262,25 @@ function Landing() {
             },
           ].map(({ icon: Icon, title, desc }, i) => (
             <Reveal key={title} delay={i * 0.08}>
-              <Card className="group h-full border-white/10 bg-white/[0.03] p-7 backdrop-blur transition-all hover:-translate-y-1 hover:border-emerald/40 hover:bg-white/[0.06]">
-                <div className="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-emerald/15 text-emerald transition-all group-hover:bg-emerald group-hover:text-navy-deep">
+              <Card className="group h-full border-white/10 bg-[#222222] text-white p-7 transition-all hover:-translate-y-1 hover:border-[#fd0517]/40 hover:bg-[#2a2a2a]">
+                <div className="mb-5 grid h-12 w-12 place-items-center rounded-xl bg-[#fd0517]/15 text-[#fd0517] transition-all group-hover:bg-[#fd0517] group-hover:text-white">
                   <Icon className="h-6 w-6" />
                 </div>
                 <h3 className="text-xl font-bold">{title}</h3>
-                <p className="mt-2 text-muted-foreground">{desc}</p>
+                <p className="mt-2 text-gray-400">{desc}</p>
               </Card>
             </Reveal>
           ))}
         </div>
       </Section>
 
-      {/* COMO FUNCIONA */}
-      <Section id="como-funciona">
+      {/* COMO FUNCIONA (Com Defesas Estratégicas) */}
+      <Section id="como-funciona" className="bg-[#111111]">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <SectionLabel>Como Funciona</SectionLabel>
             <h2 className="text-3xl font-black md:text-5xl">Operacionalização técnica.</h2>
-            <p className="mt-5 text-lg text-muted-foreground">
+            <p className="mt-5 text-lg text-gray-400">
               Quatro camadas conectadas, do GPS embarcado ao alerta na via.
             </p>
           </div>
@@ -295,23 +294,37 @@ function Landing() {
             { icon: Volume2, n: "04", t: "Alertas de segurança", d: "Sinais visuais e sonoros avisam pedestres e motoristas civis no cruzamento." },
           ].map(({ icon: Icon, n, t, d }, i) => (
             <Reveal key={n} delay={i * 0.08}>
-              <Card className="relative h-full border-border/80 p-6 transition-all hover:-translate-y-1 hover:border-emerald hover:shadow-elegant">
+              <Card className="relative h-full border-white/10 bg-[#1a1a1a] text-white p-6 transition-all hover:-translate-y-1 hover:border-[#fd0517]">
                 <div className="mb-4 flex items-center justify-between">
-                  <div className="grid h-11 w-11 place-items-center rounded-lg bg-navy text-emerald">
+                  <div className="grid h-11 w-11 place-items-center rounded-lg bg-[#222222] text-[#fd0517]">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <span className="text-3xl font-black text-muted-foreground/30">{n}</span>
+                  <span className="text-3xl font-black text-white/10">{n}</span>
                 </div>
                 <h3 className="text-lg font-bold">{t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{d}</p>
+                <p className="mt-2 text-sm text-gray-400">{d}</p>
               </Card>
             </Reveal>
           ))}
         </div>
+
+        {/* Crivo Crítico: Segurança e Priorização */}
+        <Reveal delay={0.4}>
+            <div className="mt-12 flex flex-col md:flex-row gap-4 justify-center items-center">
+                <div className="flex items-center gap-2 rounded-full bg-[#fd0517]/10 px-4 py-2 text-sm text-[#fd0517] border border-[#fd0517]/20 shadow-lg">
+                    <ShieldCheck className="h-4 w-4" />
+                    <span className="font-medium">Criptografia E2E e Autenticação de 2 Fatores</span>
+                </div>
+                <div className="flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-sm text-gray-300 border border-white/10 shadow-lg">
+                    <Cpu className="h-4 w-4" />
+                    <span className="font-medium">Algoritmo de Priorização (Gestão de Múltiplas Viaturas)</span>
+                </div>
+            </div>
+        </Reveal>
       </Section>
 
       {/* VALIDAÇÃO */}
-      <Section dark>
+      <Section className="border-t border-white/5">
         <div className="grid gap-12 md:grid-cols-5 md:items-center">
           <Reveal>
             <div className="md:col-span-2">
@@ -319,26 +332,26 @@ function Landing() {
               <h2 className="text-3xl font-black md:text-4xl">
                 Validada por quem vive a dor diariamente.
               </h2>
-              <p className="mt-5 text-muted-foreground">
-                Entrevistas em profundidade com profissionais com mais de <strong className="text-foreground">17 anos de experiência</strong> no SAMU e resgate. O consenso: a tecnologia é viável e resolve o momento de maior estresse operacional da equipe.
+              <p className="mt-5 text-gray-400">
+                Entrevistas em profundidade com profissionais com mais de <strong className="text-white">17 anos de experiência</strong> no SAMU e resgate. O consenso: a tecnologia é viável e resolve o momento de maior estresse operacional da equipe.
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.15}>
             <div className="md:col-span-3">
-              <Card className="border-white/10 bg-white/[0.03] p-8 md:p-10">
-                <Quote className="h-9 w-9 text-emerald" />
+              <Card className="border-white/10 bg-[#222222] text-white p-8 md:p-10">
+                <Quote className="h-9 w-9 text-[#fd0517]" />
                 <p className="mt-5 text-xl font-semibold leading-snug md:text-2xl">
                   "O cruzamento é o nosso pior inimigo. Saber que o sinal abriria antes da gente chegar mudaria completamente como a gente conduz a viatura — mais segurança para a equipe e para o paciente."
                 </p>
                 <div className="mt-6 flex items-center gap-4 border-t border-white/10 pt-6">
-                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-emerald/15 text-emerald">
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#fd0517]/15 text-[#fd0517]">
                     <Users className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="font-semibold">Condutor socorrista</div>
-                    <div className="text-sm text-muted-foreground">17+ anos · SAMU / Resgate</div>
+                    <div className="text-sm text-gray-400">17+ anos · SAMU / Resgate</div>
                   </div>
                 </div>
               </Card>
@@ -347,47 +360,47 @@ function Landing() {
         </div>
       </Section>
 
-      {/* MODELO DE NEGÓCIOS */}
-      <Section>
+      {/* MODELO DE NEGÓCIOS - Ajustado B2B e B2G */}
+      <Section className="bg-[#111111]">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <SectionLabel>Modelo de Negócios</SectionLabel>
-            <h2 className="text-3xl font-black md:text-5xl">Viabilidade B2G escalável.</h2>
-            <p className="mt-5 text-lg text-muted-foreground">
-              Três pilares do Canvas que sustentam a operação e a expansão.
+            <h2 className="text-3xl font-black md:text-5xl">Viabilidade Híbrida e Escalável.</h2>
+            <p className="mt-5 text-lg text-gray-400">
+              Estratégia sólida para garantir caixa rápido e expansão pública sustentável.
             </p>
           </div>
         </Reveal>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {[
-            {
-              icon: Siren,
-              tag: "Público-alvo",
-              title: "Usuário final",
-              desc: "Condutores oficiais do SAMU e Corpo de Bombeiros em rota de emergência.",
-            },
-            {
-              icon: Building2,
-              tag: "Clientes",
-              title: "Quem adquire",
-              desc: "Prefeituras e Secretarias de Mobilidade (URBS / SETRAN) e Saúde.",
-            },
-            {
-              icon: Globe2,
-              tag: "Viabilidade",
-              title: "Escala global",
-              desc: "Qualquer grande centro urbano via licitação pública e licenciamento SaaS/IoT.",
-            },
+             {
+                icon: Building2,
+                tag: "B2B (Curto Prazo)",
+                title: "Privado & SaaS",
+                desc: "Hospitais privados e frotas de planos de saúde (ex: Unimed) pagando assinatura SaaS para reduzir tempo de transporte de pacientes graves.",
+              },
+              {
+                icon: Globe2,
+                tag: "B2G (Longo Prazo)",
+                title: "Licitação Pública",
+                desc: "Prefeituras e Secretarias de Mobilidade (URBS/SETRAN) adotando o sistema em escala municipal via licitação e expansão IoT.",
+              },
+              {
+                icon: Siren,
+                tag: "Usuário Final",
+                title: "Condutor Socorrista",
+                desc: "Os heróis do SAMU e Bombeiros que ganham segurança, previsibilidade e foco total em salvar vidas nas ruas.",
+              },
           ].map(({ icon: Icon, tag, title, desc }, i) => (
             <Reveal key={title} delay={i * 0.08}>
-              <Card className="group h-full overflow-hidden border-border/80 p-0 transition-all hover:-translate-y-1 hover:shadow-elegant">
-                <div className="border-b bg-navy p-6 text-primary-foreground">
-                  <Icon className="h-7 w-7 text-emerald" />
-                  <div className="mt-4 text-xs font-semibold uppercase tracking-widest text-emerald">{tag}</div>
+              <Card className="group h-full overflow-hidden border-white/10 bg-[#1a1a1a] text-white p-0 transition-all hover:-translate-y-1 hover:border-[#fd0517]">
+                <div className="border-b border-white/10 bg-[#222222] p-6">
+                  <Icon className="h-7 w-7 text-[#fd0517]" />
+                  <div className="mt-4 text-xs font-semibold uppercase tracking-widest text-[#fd0517]">{tag}</div>
                   <div className="mt-1 text-2xl font-black">{title}</div>
                 </div>
-                <p className="p-6 text-muted-foreground">{desc}</p>
+                <p className="p-6 text-gray-400">{desc}</p>
               </Card>
             </Reveal>
           ))}
@@ -395,12 +408,12 @@ function Landing() {
       </Section>
 
       {/* EQUIPE */}
-      <Section id="equipe" className="border-t">
+      <Section id="equipe" className="border-t border-white/5">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
             <SectionLabel>Equipe Fundadora</SectionLabel>
             <h2 className="text-3xl font-black md:text-4xl">Idealizadores do projeto.</h2>
-            <p className="mt-4 text-muted-foreground">
+            <p className="mt-4 text-gray-400">
               Disciplina Cultura Startup · Universidade Positivo Business School
             </p>
           </div>
@@ -417,8 +430,8 @@ function Landing() {
             "Maria Quitéria Araújo Pereira",
           ].map((name, i) => (
             <Reveal key={name} delay={i * 0.05}>
-              <div className="group flex items-center gap-4 rounded-xl border bg-card p-4 transition-all hover:-translate-y-0.5 hover:border-emerald hover:shadow-elegant">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-navy font-bold text-emerald">
+              <div className="group flex items-center gap-4 rounded-xl border border-white/10 bg-[#222222] p-4 transition-all hover:-translate-y-0.5 hover:border-[#fd0517]">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#1a1a1a] font-bold text-[#fd0517]">
                   {name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
                 </div>
                 <div className="min-w-0 text-sm font-semibold">{name}</div>
@@ -428,44 +441,91 @@ function Landing() {
         </div>
       </Section>
 
-      {/* CTA FINAL */}
-      <section id="mvp" className="dark relative isolate overflow-hidden bg-background text-foreground">
-        <div className="absolute inset-0 -z-10 bg-grid opacity-30" />
-        <div className="absolute left-1/2 top-1/2 -z-10 h-96 w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald/20 blur-[140px]" />
-
-        <div className="mx-auto max-w-4xl px-6 py-24 text-center md:py-32">
+      {/* CTA FINAL & MVP IFRAME */}
+      <section id="mvp" className="relative isolate overflow-hidden bg-[#111111] text-white">
+        <div className="mx-auto max-w-6xl px-6 py-24 text-center md:py-32">
           <Reveal>
-            <h2 className="text-4xl font-black leading-tight md:text-6xl">
+            <h2 className="text-4xl font-black leading-tight md:text-5xl">
               Conheça o futuro da{" "}
-              <span className="text-gradient-emerald">mobilidade de emergência</span>.
+              <span className="bg-gradient-to-r from-[#fd0517] to-red-400 bg-clip-text text-transparent">mobilidade de emergência</span>.
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-              Explore o fluxo do MVP e veja como cada segundo economizado se traduz em vidas salvas.
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
+              Navegue no nosso MVP executável abaixo. Veja como cada segundo economizado se traduz em mais segurança.
             </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="bg-emerald text-navy-deep shadow-glow hover:bg-emerald-glow">
-                <a href="#" aria-label="Abrir simulação do MVP no Figma">
-                  Simular MVP <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-white/20 bg-white/5 text-foreground hover:bg-white/10">
-                <a href="#problema">Revisar o pitch</a>
-              </Button>
+            
+            <div className="mt-12 flex w-full justify-center">
+              {/* ATENÇÃO: Substitua o atributo src="" pelo link 'Embed' do seu Figma */}
+              <iframe 
+                style={{ border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "12px", background: "#1a1a1a" }}
+                width="100%" 
+                height="600" 
+                src="https://www.figma.com/embed?embed_host=share&url=COLOQUE_SEU_LINK_AQUI" 
+                allowFullScreen
+                title="MVP Figma Prototype">
+              </iframe>
             </div>
           </Reveal>
         </div>
+      </section>
 
-        <footer className="border-t border-white/10">
-          <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-8 text-sm text-muted-foreground md:flex-row">
-            <div className="flex items-center gap-2 font-semibold text-foreground">
-              <Siren className="h-4 w-4 text-emerald" /> SDS Emergências
+      {/* FOOTER PROFISSIONAL */}
+      <footer className="border-t border-white/10 bg-[#1a1a1a] py-16 text-white">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid gap-12 md:grid-cols-4 md:gap-8">
+            
+            {/* Info Marca */}
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-2">
+                 <img src={logoSvg} alt="Logo SDS" className="h-8 w-auto object-contain object-left" />
+                 <span className="font-bold text-lg">SDS Emergências</span>
+              </div>
+              <p className="text-sm text-gray-400">Mobilidade inteligente e infraestrutura urbana a favor da vida.</p>
+              <p className="text-xs text-gray-500 font-mono mt-2">CNPJ: 45.123.456/0001-99</p>
             </div>
-            <div className="text-center md:text-right">
-              Universidade Positivo · Business School · Disciplina Cultura Startup · 2026
+
+            {/* Contato Funcional */}
+            <div>
+              <h4 className="font-bold mb-5 text-[#fd0517] uppercase tracking-wider text-sm">Contato</h4>
+              <div className="flex flex-col gap-3 text-sm text-gray-400">
+                <a href="mailto:contato@sdsemergencias.com.br" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Mail className="h-4 w-4 text-gray-500"/> contato@sdsemergencias.com.br
+                </a>
+                <a href="tel:+5541999999999" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Phone className="h-4 w-4 text-gray-500"/> (41) 99999-9999
+                </a>
+              </div>
+            </div>
+
+            {/* Redes Sociais Funcionais */}
+            <div>
+              <h4 className="font-bold mb-5 text-[#fd0517] uppercase tracking-wider text-sm">Redes Sociais</h4>
+              <div className="flex flex-col gap-3 text-sm text-gray-400">
+                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Instagram className="h-4 w-4 text-gray-500"/> Instagram
+                </a>
+                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Linkedin className="h-4 w-4 text-gray-500"/> LinkedIn
+                </a>
+              </div>
+            </div>
+
+            {/* Assinatura Centralizada */}
+            <div className="flex flex-col items-start md:items-end justify-center">
+              <div className="text-left md:text-center">
+                 <p className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Desenvolvido por</p>
+                 <p style={{ fontFamily: "'Caveat', cursive", fontSize: "1.8rem", color: "#fd0517" }}>
+                   Lucas Kumegawa de Godoi
+                 </p>
+              </div>
             </div>
           </div>
-        </footer>
-      </section>
+
+          <div className="mt-16 text-center text-xs text-gray-500 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 SDS Emergências. Todos os direitos reservados.</p>
+            <p>Universidade Positivo · Business School · Cultura Startup</p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
