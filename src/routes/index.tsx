@@ -413,39 +413,56 @@ function Landing() {
         </div>
       </Section>
 
-      {/* EQUIPE */}
-      <Section id="equipe" className="border-t border-white/5">
-        <Reveal>
-          <div className="mx-auto max-w-2xl text-center">
-            <SectionLabel>Equipe Fundadora</SectionLabel>
-            <h2 className="text-3xl font-black md:text-4xl">Idealizadores do projeto.</h2>
-            <p className="mt-4 text-gray-400">
-              Disciplina Cultura Startup · Universidade Positivo Business School
-            </p>
-          </div>
-        </Reveal>
+      {/* EQUIPE COM HOMENAGEM */}
+      <section id="equipe" className="bg-[#1a1a1a] text-white py-20 md:py-28 border-t border-white/5">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center">
+              <SectionLabel>Equipe Fundadora</SectionLabel>
+              <h2 className="text-3xl font-black md:text-4xl">Idealizadores do projeto.</h2>
+              <p className="mt-4 text-gray-400">
+                Disciplina Cultura Startup · Universidade Positivo Business School
+              </p>
+            </div>
+          </Reveal>
 
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            "Lucas Kumegawa de Godoi",
-            "Murilo Hitoshi Kumegawa",
-            "Murilo Melo Schlichting",
-            "Diogo Henrique da Silva",
-            "Tiago Reginato Koligowski",
-            "Conrado Rezende Correia Neto",
-            "Maria Quitéria Araújo Pereira",
-          ].map((name, i) => (
-            <Reveal key={name} delay={i * 0.05}>
-              <div className="group flex items-center gap-4 rounded-xl border border-white/10 bg-[#222222] p-4 transition-all hover:-translate-y-0.5 hover:border-[#fd0517]">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#1a1a1a] font-bold text-[#fd0517]">
-                  {name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+          {/* Grid Principal da Equipe */}
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              "Lucas Kumegawa de Godoi",
+              "Murilo Hitoshi Kumegawa",
+              "Murilo Melo Schlichting",
+              "Diogo Henrique da Silva",
+              "Tiago Reginato Koligowski",
+              "Conrado Rezende Correia Neto",
+            ].map((name, i) => (
+              <Reveal key={name} delay={i * 0.05}>
+                <div className="group flex items-center gap-4 rounded-xl border border-white/10 bg-[#222222] p-4 transition-all hover:-translate-y-0.5 hover:border-[#fd0517]">
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#1a1a1a] font-bold text-[#fd0517]">
+                    {name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+                  </div>
+                  <div className="min-w-0 text-sm font-semibold">{name}</div>
                 </div>
-                <div className="min-w-0 text-sm font-semibold">{name}</div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Homenagem Maria Quitéria Araújo Pereira (Separado) */}
+          <Reveal delay={0.4}>
+            <div className="mt-12 mx-auto max-w-md">
+              <div className="flex flex-col items-center gap-2 rounded-xl border border-white/5 bg-[#1a1a1a]/40 p-5 text-center transition-all opacity-80 hover:opacity-100 hover:border-white/10">
+                <div className="text-3xl mb-1">🪦</div>
+                <div className="text-sm font-semibold text-gray-300 flex items-center justify-center gap-2">
+                  Maria Quitéria Araújo Pereira 😢
+                </div>
+                <div className="text-xs text-gray-500 mt-1 uppercase tracking-widest font-mono">
+                  In Memoriam · 2007 - 2026
+                </div>
               </div>
-            </Reveal>
-          ))}
+            </div>
+          </Reveal>
         </div>
-      </Section>
+      </section>
 
       {/* CTA FINAL & MVP IFRAME */}
       <section id="mvp" className="relative isolate overflow-hidden bg-[#111111] text-white">
