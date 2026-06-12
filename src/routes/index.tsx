@@ -447,7 +447,7 @@ function Landing() {
         </div>
       </Section>
 
-      {/* CTA FINAL & MVP IFRAME COM O LINK GERADO */}
+      {/* CTA FINAL & MVP IFRAME COM O SEU SITE PUBLICADO */}
       <section id="mvp" className="relative isolate overflow-hidden bg-[#111111] text-white">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center md:py-32">
           <Reveal>
@@ -460,13 +460,14 @@ function Landing() {
             </p>
             
             <div className="mt-12 flex w-full justify-center">
+              {/* O iframe agora puxa diretamente o site publicado da Figma */}
               <iframe 
                 style={{ border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "12px", background: "#1a1a1a" }}
                 width="100%" 
                 height="700" 
-                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fmake%2FDI4IttniN9JpQ5tqE3ooMJ%2FHigh-Fidelity-Mobile-Prototype%3Fcode-node-id%3D0-9%26p%3Df%26t%3D1fOC2dBGhC2FM2Vp-0%26fullscreen%3D1" 
+                src="https://hex-fray-95789203.figma.site/" 
                 allowFullScreen
-                title="MVP Figma Prototype">
+                title="MVP Prototype">
               </iframe>
             </div>
           </Reveal>
