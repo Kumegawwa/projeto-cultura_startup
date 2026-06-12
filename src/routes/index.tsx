@@ -86,9 +86,13 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 function Landing() {
   return (
     <main className="bg-[#1a1a1a] min-h-screen font-sans selection:bg-[#fd0517] selection:text-white">
-      {/* Importação da fonte para a assinatura via Google Fonts (pode ajustar se necessário) */}
+      {/* Importação das fontes Globais */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
+        
+        .font-oleo {
+          font-family: 'Oleo Script', cursive;
+        }
       `}</style>
 
       {/* NAV */}
@@ -274,7 +278,7 @@ function Landing() {
         </div>
       </Section>
 
-      {/* COMO FUNCIONA (Com Defesas Estratégicas) */}
+      {/* COMO FUNCIONA */}
       <Section id="como-funciona" className="bg-[#111111]">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
@@ -326,8 +330,9 @@ function Landing() {
       {/* VALIDAÇÃO */}
       <Section className="border-t border-white/5">
         <div className="grid gap-12 md:grid-cols-5 md:items-center">
-          <Reveal>
-            <div className="md:col-span-2">
+          
+          <div className="md:col-span-2">
+            <Reveal>
               <SectionLabel>Validação</SectionLabel>
               <h2 className="text-3xl font-black md:text-4xl">
                 Validada por quem vive a dor diariamente.
@@ -335,11 +340,11 @@ function Landing() {
               <p className="mt-5 text-gray-400">
                 Entrevistas em profundidade com profissionais com mais de <strong className="text-white">17 anos de experiência</strong> no SAMU e resgate. O consenso: a tecnologia é viável e resolve o momento de maior estresse operacional da equipe.
               </p>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
 
-          <Reveal delay={0.15}>
-            <div className="md:col-span-3">
+          <div className="md:col-span-3">
+            <Reveal delay={0.15}>
               <Card className="border-white/10 bg-[#222222] text-white p-8 md:p-10">
                 <Quote className="h-9 w-9 text-[#fd0517]" />
                 <p className="mt-5 text-xl font-semibold leading-snug md:text-2xl">
@@ -355,12 +360,13 @@ function Landing() {
                   </div>
                 </div>
               </Card>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
+
         </div>
       </Section>
 
-      {/* MODELO DE NEGÓCIOS - Ajustado B2B e B2G */}
+      {/* MODELO DE NEGÓCIOS */}
       <Section className="bg-[#111111]">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
@@ -441,7 +447,7 @@ function Landing() {
         </div>
       </Section>
 
-      {/* CTA FINAL & MVP IFRAME */}
+      {/* CTA FINAL & MVP IFRAME COM O LINK GERADO */}
       <section id="mvp" className="relative isolate overflow-hidden bg-[#111111] text-white">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center md:py-32">
           <Reveal>
@@ -454,12 +460,11 @@ function Landing() {
             </p>
             
             <div className="mt-12 flex w-full justify-center">
-              {/* ATENÇÃO: Substitua o atributo src="" pelo link 'Embed' do seu Figma */}
               <iframe 
                 style={{ border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "12px", background: "#1a1a1a" }}
                 width="100%" 
-                height="600" 
-                src="https://www.figma.com/embed?embed_host=share&url=COLOQUE_SEU_LINK_AQUI" 
+                height="700" 
+                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fmake%2FDI4IttniN9JpQ5tqE3ooMJ%2FHigh-Fidelity-Mobile-Prototype%3Fcode-node-id%3D0-9%26p%3Df%26t%3D1fOC2dBGhC2FM2Vp-0%26fullscreen%3D1" 
                 allowFullScreen
                 title="MVP Figma Prototype">
               </iframe>
@@ -468,9 +473,9 @@ function Landing() {
         </div>
       </section>
 
-      {/* FOOTER PROFISSIONAL */}
-      <footer className="border-t border-white/10 bg-[#1a1a1a] py-16 text-white">
-        <div className="mx-auto max-w-6xl px-6">
+      {/* FOOTER PROFISSIONAL COM ASSINATURA CENTRALIZADA */}
+      <footer className="border-t border-white/10 bg-[#1a1a1a] py-16 text-white flex flex-col">
+        <div className="mx-auto w-full max-w-6xl px-6">
           <div className="grid gap-12 md:grid-cols-4 md:gap-8">
             
             {/* Info Marca */}
@@ -509,20 +514,40 @@ function Landing() {
               </div>
             </div>
 
-            {/* Assinatura Centralizada */}
-            <div className="flex flex-col items-start md:items-end justify-center">
-              <div className="text-left md:text-center">
-                 <p className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Desenvolvido por</p>
-                 <p style={{ fontFamily: "'Caveat', cursive", fontSize: "1.8rem", color: "#fd0517" }}>
-                   Lucas Kumegawa de Godoi
-                 </p>
-              </div>
-            </div>
+            {/* Coluna extra vazia ou para links úteis, mantendo alinhamento */}
+            <div className="hidden md:block"></div>
           </div>
 
-          <div className="mt-16 text-center text-xs text-gray-500 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>© 2026 SDS Emergências. Todos os direitos reservados.</p>
-            <p>Universidade Positivo · Business School · Cultura Startup</p>
+          {/* LINHA INFERIOR (3 Colunas flex-1) */}
+          <div className="mt-16 border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            {/* Esquerda */}
+            <div className="flex-1 text-center md:text-left text-xs text-gray-500 order-2 md:order-1">
+              <p>© 2026 SDS Emergências. Todos os direitos reservados.</p>
+            </div>
+
+            {/* Centro: Assinatura Exata */}
+            <div className="flex-1 flex justify-center order-1 md:order-2">
+              <div className="text-[11px] font-sans tracking-wider text-gray-500 flex items-center justify-center gap-1 select-none">
+                <span>Designed by</span>
+                <a 
+                  href="https://www.linkedin.com/in/lucas-kumegawa/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="group inline-flex items-center text-gray-500 transition-all duration-300 hover:text-white"
+                >
+                  <span className="font-oleo text-[16px] text-[#fd0517] tracking-normal normal-case transition-all duration-300 group-hover:scale-105 block origin-center">
+                    Kumegawa
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            {/* Direita */}
+            <div className="flex-1 text-center md:text-right text-xs text-gray-500 order-3 md:order-3">
+              <p>Universidade Positivo · Business School</p>
+            </div>
+
           </div>
         </div>
       </footer>
