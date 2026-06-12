@@ -305,7 +305,7 @@ function Landing() {
                   </div>
                   <span className="text-3xl font-black text-white/10">{n}</span>
                 </div>
-                <h3 className="text-lg font-bold">{t}</h3>
+                <div className="text-lg font-bold">{t}</div>
                 <p className="mt-2 text-sm text-gray-400">{d}</p>
               </Card>
             </Reveal>
@@ -445,9 +445,9 @@ function Landing() {
             </Reveal>
           ))}
         </div>
-      </Section>
+      </section>
 
-      {/* CTA FINAL & MVP IFRAME COM O SEU SITE PUBLICADO */}
+      {/* CTA FINAL & MVP IFRAME */}
       <section id="mvp" className="relative isolate overflow-hidden bg-[#111111] text-white">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center md:py-32">
           <Reveal>
@@ -460,7 +460,6 @@ function Landing() {
             </p>
             
             <div className="mt-12 flex w-full justify-center">
-              {/* O iframe agora puxa diretamente o site publicado da Figma */}
               <iframe 
                 style={{ border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "12px", background: "#1a1a1a" }}
                 width="100%" 
@@ -474,60 +473,60 @@ function Landing() {
         </div>
       </section>
 
-      {/* FOOTER PROFISSIONAL COM ASSINATURA CENTRALIZADA */}
-      <footer className="border-t border-white/10 bg-[#1a1a1a] py-16 text-white flex flex-col">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="grid gap-12 md:grid-cols-4 md:gap-8">
+      {/* FOOTER PROFISSIONAL TOTALMENTE CENTRALIZADO */}
+      <footer className="border-t border-white/10 bg-[#1a1a1a] py-16 text-white text-center flex flex-col items-center">
+        <div className="mx-auto w-full max-w-6xl px-6 flex flex-col items-center">
+          
+          {/* Seções Superiores Centralizadas */}
+          <div className="grid gap-12 sm:grid-cols-3 w-full border-b border-white/10 pb-12 text-center justify-items-center">
             
             {/* Info Marca */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col items-center gap-3">
               <div className="flex items-center gap-2">
-                 <img src={logoSvg} alt="Logo SDS" className="h-8 w-auto object-contain object-left" />
+                 <img src={logoSvg} alt="Logo SDS" className="h-8 w-auto object-contain" />
                  <span className="font-bold text-lg">SDS Emergências</span>
               </div>
-              <p className="text-sm text-gray-400">Mobilidade inteligente e infraestrutura urbana a favor da vida.</p>
-              <p className="text-xs text-gray-500 font-mono mt-2">CNPJ: 45.123.456/0001-99</p>
+              <p className="text-sm text-gray-400 max-w-xs">Mobilidade inteligente e infraestrutura urbana a favor da vida.</p>
+              <p className="text-xs text-gray-500 font-mono mt-1">CNPJ: 10.000.000/0000-00</p>
             </div>
 
             {/* Contato Funcional */}
-            <div>
-              <h4 className="font-bold mb-5 text-[#fd0517] uppercase tracking-wider text-sm">Contato</h4>
-              <div className="flex flex-col gap-3 text-sm text-gray-400">
-                <a href="mailto:contato@sdsemergencias.com.br" className="flex items-center gap-2 hover:text-white transition-colors">
+            <div className="flex flex-col items-center">
+              <h4 className="font-bold mb-4 text-[#fd0517] uppercase tracking-wider text-sm">Contato</h4>
+              <div className="flex flex-col gap-2.5 text-sm text-gray-400">
+                <a href="mailto:contato@sdsemergencias.com.br" className="flex items-center justify-center gap-2 hover:text-white transition-colors">
                   <Mail className="h-4 w-4 text-gray-500"/> contato@sdsemergencias.com.br
                 </a>
-                <a href="tel:+5541999999999" className="flex items-center gap-2 hover:text-white transition-colors">
+                <a href="tel:+5541999999999" className="flex items-center justify-center gap-2 hover:text-white transition-colors">
                   <Phone className="h-4 w-4 text-gray-500"/> (41) 99999-9999
                 </a>
               </div>
             </div>
 
             {/* Redes Sociais Funcionais */}
-            <div>
-              <h4 className="font-bold mb-5 text-[#fd0517] uppercase tracking-wider text-sm">Redes Sociais</h4>
-              <div className="flex flex-col gap-3 text-sm text-gray-400">
-                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+            <div className="flex flex-col items-center">
+              <h4 className="font-bold mb-4 text-[#fd0517] uppercase tracking-wider text-sm">Redes Sociais</h4>
+              <div className="flex flex-col gap-2.5 text-sm text-gray-400">
+                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 hover:text-white transition-colors">
                   <Instagram className="h-4 w-4 text-gray-500"/> Instagram
                 </a>
-                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 hover:text-white transition-colors">
                   <Linkedin className="h-4 w-4 text-gray-500"/> LinkedIn
                 </a>
               </div>
             </div>
 
-            {/* Coluna extra vazia ou para links úteis, mantendo alinhamento */}
-            <div className="hidden md:block"></div>
           </div>
 
           {/* LINHA INFERIOR (3 Colunas flex-1) */}
-          <div className="mt-16 border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="mt-10 w-full flex flex-col md:flex-row items-center justify-between gap-6">
             
             {/* Esquerda */}
             <div className="flex-1 text-center md:text-left text-xs text-gray-500 order-2 md:order-1">
               <p>© 2026 SDS Emergências. Todos os direitos reservados.</p>
             </div>
 
-            {/* Centro: Assinatura Exata */}
+            {/* Centro: Assinatura Exata Mapeada e Alinhada */}
             <div className="flex-1 flex justify-center order-1 md:order-2">
               <div className="text-[11px] font-sans tracking-wider text-gray-500 flex items-center justify-center gap-1 select-none">
                 <span>Designed by</span>
