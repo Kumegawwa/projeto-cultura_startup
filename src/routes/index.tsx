@@ -445,7 +445,7 @@ function Landing() {
             </Reveal>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* CTA FINAL & MVP IFRAME */}
       <section id="mvp" className="relative isolate overflow-hidden bg-[#111111] text-white">
